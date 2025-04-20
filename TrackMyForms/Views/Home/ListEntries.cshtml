@@ -1,0 +1,32 @@
+﻿@model IEnumerable<TrackMyForms.Models.FormEntry>
+
+@{
+    ViewData["Title"] = "All Form Entries";
+}
+
+<h2>All Submitted Entries</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var entry in Model)
+        {
+            <tr>
+                <td>@entry.Id</td>
+                <td>@entry.Name</td>
+                <td>@entry.Email</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@entry.Id" class="btn btn-warning btn-sm">Edit</a>
+                    <a asp-action="Delete" asp-route-id="@entry.Id" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
