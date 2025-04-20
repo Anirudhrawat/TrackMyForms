@@ -24,6 +24,7 @@ namespace TrackMyForms.Controllers
 
         // Submit form
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Index(FormEntry entry)
         {
             if (ModelState.IsValid)
